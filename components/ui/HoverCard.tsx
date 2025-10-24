@@ -3,12 +3,13 @@ import Image from "next/image";
 import { useState } from "react";
 
 interface HoverCardProps {
-  title: string;
-  description: string;
+  title: any;
+  description: any;
   imageUrl: string;
   onClick?: () => void;
   width?: number;
   height?: number;
+  showDescription?: boolean;
 }
 
 export default function HoverCard({
@@ -18,6 +19,7 @@ export default function HoverCard({
   onClick = () => {},
   width = 12,
   height = 15,
+  showDescription = false,
 }: HoverCardProps) {
   const [hovered, setHovered] = useState(false);
 
@@ -50,18 +52,18 @@ export default function HoverCard({
       {/* Text Content */}
       <div className="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-start text-white">
         {/* Title always visible */}
-        <h3 className="text-lg font-display font-prata">{title}</h3>
+        {title}
 
         {/* Description only on hover */}
-        <p
-          className={`text-sm mt-3 transition-all duration-500 font-lato ${
-            hovered
+        <div
+          className={`${
+            hovered || showDescription
               ? "opacity-100 translate-y-0 delay-150"
               : "opacity-0 -translate-y-2"
           }`}
         >
           {description}
-        </p>
+        </div>
       </div>
     </div>
   );
