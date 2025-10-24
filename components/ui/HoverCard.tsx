@@ -1,0 +1,68 @@
+"use client";
+import Image from "next/image";
+import { useState } from "react";
+
+interface HoverCardProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+  onClick?: () => void;
+  width?: number;
+  height?: number;
+}
+
+export default function HoverCard({
+  title,
+  description,
+  imageUrl,
+  onClick = () => {},
+  width = 12,
+  height = 15,
+}: HoverCardProps) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      className="relative  rounded-2xl overflow-hidden cursor-pointer group transition-all duration-500"
+      style={{ width: `${width}rem`, height: `${height}rem` }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={onClick}
+    >
+      {/* Background Image */}
+      <Image
+        src={imageUrl}
+        alt={title}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+
+      {/* Blue Gradient Overlay */}
+      <div
+        className={`absolute inset-0 bg-linear-to-b from-primary to-transparent transition-all duration-500 ${
+          hovered ? "opacity-100 h-full" : "opacity-100 h-[55%]"
+        }`}
+        style={{
+          transition: "height 0.5s ease, opacity 0.5s ease",
+        }}
+      />
+
+      {/* Text Content */}
+      <div className="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-start text-white">
+        {/* Title always visible */}
+        <h3 className="text-lg font-display font-prata">{title}</h3>
+
+        {/* Description only on hover */}
+        <p
+          className={`text-sm mt-3 transition-all duration-500 font-lato ${
+            hovered
+              ? "opacity-100 translate-y-0 delay-150"
+              : "opacity-0 -translate-y-2"
+          }`}
+        >
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}

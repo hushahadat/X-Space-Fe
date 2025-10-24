@@ -42,7 +42,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
 
         <div className="hidden md:flex items-center gap-3">
-          <button className="rounded-full border border-white px-5 py-1 text-white hover:bg-white hover:text-primary transition cursor-pointer font-lato">
+          <button className="rounded-full border border-white px-5 py-1 font-medium text-white hover:bg-white hover:text-primary transition cursor-pointer font-lato">
             Sign Up
           </button>
           <button className="rounded-full bg-primary text-secondary px-5 py-1 font-medium hover:bg-gradientClass transition cursor-pointer font-lato">
