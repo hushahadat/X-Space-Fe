@@ -3,7 +3,7 @@ import HoverCard from "../ui/HoverCard";
 
 export default function HeroSection() {
   return (
-    <section className="relative h-[108vh] flex  justify-center">
+    <section className="relative md:h-[108vh] flex justify-center">
       <Image
         src="/images/hero-bg.jpg"
         alt="Hero Background"
@@ -12,9 +12,9 @@ export default function HeroSection() {
         priority
       />
 
-      <div className="md:mx-15 w-full px-10 py-6 flex flex-col lg:flex-row justify-between gap-8 backdrop-blur-lg bg-gradientClass shadow-xl rounded-md md:max-h-[600px] top-25 relative">
+      <div className="w-[80%] px-10 py-6 flex flex-col lg:flex-row justify-between gap-8 backdrop-blur-lg bg-gradientClass shadow-xl rounded-md md:max-h-[600px] top-25 relative">
         {/* Left: Main Text */}
-        <div className="flex-1 rounded-3xl max-w-[60%]">
+        <div className="flex-1 rounded-3xl md:max-w-[60%]">
           <div>
             <h1 className="text-4xl lg:text-5xl font-display mb-6 text-secondary leading-snug font-prata">
               From Vision To Reality,
@@ -32,7 +32,7 @@ export default function HeroSection() {
 
           {/* jjjj */}
 
-          <div className="flex mt-12 gap-3">
+          <div className="md:flex md:flex-row mt-12 gap-3">
             <HoverCard
               title={
                 <div className="text-lg font-display font-prata">
@@ -81,7 +81,7 @@ export default function HeroSection() {
           </div>
         </div>
         {/* Right: Join Network */}
-        <div className="max-w-[35%] flex items-center">
+        <div className="hidden md:max-w-[35%] md:flex items-center justify-center">
           <HoverCard
             title={
               <h1 className="text-xl lg:text-4xl font-display text-white leading-snug font-prata">

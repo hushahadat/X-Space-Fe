@@ -25,7 +25,7 @@ export default function HoverCard({
 
   return (
     <div
-      className="relative  rounded-2xl overflow-hidden cursor-pointer group transition-all duration-500"
+      className="relative  rounded-2xl overflow-hidden cursor-pointer group transition-all duration-500 my-3"
       style={{ width: `${width}rem`, height: `${height}rem` }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
