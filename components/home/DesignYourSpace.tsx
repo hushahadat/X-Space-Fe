@@ -20,7 +20,7 @@ export default function DesignYourSpace() {
         <h2 className="text-3xl md:text-5xl font-prata mb-4 leading-tight">
           Everything You Need To Design Your Space
         </h2>
-        <p className="text-sm text-gray-300 md:text-lg">
+        <p className="text-sm text-gray-300 md:text-lg font-lato">
           Whether you&apos;re styling a room or redoing your entire home, Xspace
           brings together inspiration, expertise, and execution.
         </p>
@@ -32,7 +32,7 @@ export default function DesignYourSpace() {
         <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex flex-col justify-between hover:bg-white/20 transition-all duration-300">
           <div>
             <h3 className="text-2xl font-prata mb-2">Explore Designs</h3>
-            <p className="text-gray-200 text-sm mb-4">
+            <p className="text-gray-200 text-sm mb-4 font-lato">
               Tired of scrolling through unrealistic inspiration? Get curated
               ideas that match your actual space and budget.
             </p>
@@ -72,7 +72,7 @@ export default function DesignYourSpace() {
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between hover:bg-white/20 transition-all duration-300">
             <div className="md:w-1/2">
               <h3 className="text-2xl font-prata mb-2">Find Professionals</h3>
-              <p className="text-gray-200 text-sm mb-4">
+              <p className="text-gray-200 text-sm mb-4 font-lato">
                 Tired of scrolling through unrealistic inspiration? Get curated
                 ideas that match your actual space and budget.
               </p>

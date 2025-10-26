@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import { Prata, Lato } from "next/font/google";
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={`${latoFont.variable} ${prataFont.variable}`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

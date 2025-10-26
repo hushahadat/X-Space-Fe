@@ -59,7 +59,7 @@ export default function Navbar() {
         </button>
 
         {isOpen && (
-          <div className="absolute top-full left-0 w-full bg-gradientClass backdrop-blur-lg flex flex-col items-center gap-4 py-6 md:hidden">
+          <div className="absolute top-full left-0 w-full bg-[#00000059] backdrop-blur-3xl flex flex-col items-center gap-4 py-6 md:hidden">
             <Link href="#" className="text-white text-lg">
               Explore Ideas
             </Link>
