@@ -6,7 +6,7 @@ export default function DesignYourSpace() {
     <section className="relative w-full min-h-screen flex flex-col justify-center items-center text-secondary px-4 py-16 md:py-24">
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/room-6.jpg"
+          src="/images/Room-6.jpg"
           alt="Background"
           fill
           className="object-cover"
@@ -44,12 +44,12 @@ export default function DesignYourSpace() {
           {/* Small image grid */}
           <div className="grid grid-cols-2 gap-3 mt-6">
             {[
-              "/images/room-1.jpg",
-              "/images/room-2.jpg",
-              "/images/room-3.jpg",
-              "/images/room-4.jpg",
-              "/images/room-5.jpg",
-              "/images/room-6.jpg",
+              "/images/Room-1.jpg",
+              "/images/Room-2.jpg",
+              "/images/Room-3.jpg",
+              "/images/Room-4.jpg",
+              "/images/Room-5.jpg",
+              "/images/Room-6.jpg",
             ].map((src, i) => (
               <div
                 key={i}
