@@ -1,0 +1,193 @@
+[
+  {
+    "id": "intro",
+    "title": "Begin Your Journey With Us",
+    "description": "Take a quick survey to share your style and needs, and we’ll bring you better ideas and solutions.",
+    "type": "intro",
+    "image": "/images/onboarding/Animation_begin.png"
+  },
+
+  {
+    "type": "nestedRadio",
+    "name": "propertyType",
+    "title": "What type of home are you designing?",
+    "description": "Select your home type and details below.",
+    "options": [
+      {
+        "label": "Flat",
+        "value": "flat",
+        "subOptions": [
+          {
+            "label": "1 BHK / Studio",
+            "value": "1bhk",
+            "inputField": {
+              "label": "Enter size (sq. ft.)",
+              "placeholder": "e.g. 1200 sq. ft"
+            }
+          },
+          {
+            "label": "2 BHK",
+            "value": "2bhk",
+            "inputField": {
+              "label": "Enter size (sq. ft.)",
+              "placeholder": "e.g. 1500 sq. ft"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Villa",
+        "value": "villa",
+        "inputField": {
+          "label": "Enter size (sq. ft.)",
+          "placeholder": "e.g. 2500 sq. ft"
+        }
+      }
+    ]
+  },
+  {
+    "id": "budget",
+    "title": "What’s your budget range?",
+    "fields": [
+      {
+        "name": "budget",
+        "type": "radio",
+        "options": ["<10 Lacs", "10–25 Lacs", "25–50 Lacs", ">50 Lacs"],
+        "required": true
+      },
+      {
+        "name": "requirements",
+        "type": "textarea",
+        "label": "Any specific requirements?",
+        "required": false
+      }
+    ]
+  },
+  {
+    "id": "Location",
+    "title": "What’s is your home located?",
+    "fields": [
+      {
+        "name": "budget",
+        "type": "radio",
+        "options": ["Bengaluru", "Mumbai", "Delhi", "Pune", "Chennai"],
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "homeType",
+    "title": "Which parts of your home would you like us to design?",
+    "type": "imageSelect",
+    "name": "homeType",
+    "options": [
+      {
+        "label": "Entire House",
+        "image": "/images/onboarding/designLocation/Entire house.png"
+      },
+      {
+        "label": "Wood Work",
+        "image": "/images/onboarding/designLocation/WoodWork.png"
+      },
+      {
+        "label": "Outdoors",
+        "image": "/images/onboarding/designLocation/Outdoors.png"
+      },
+      {
+        "label": "Modular Kitchen",
+        "image": "/images/onboarding/designLocation/Modularkitchen.png"
+      }
+    ],
+    "required": true
+  },
+  {
+    "id": "stylePreference",
+    "title": "Choose your preferred style.",
+    "type": "imageSelect",
+    "name": "stylePreference",
+    "options": [
+      {
+        "label": "Classic",
+        "image": "/images/onboarding/preferredStyle/Classic.png"
+      },
+      {
+        "label": "Colonial",
+        "image": "/images/onboarding/preferredStyle/Colonial.png"
+      },
+      {
+        "label": "contemporary",
+        "image": "/images/onboarding/preferredStyle/Contemporary.png"
+      },
+      {
+        "label": "Minimalistic",
+        "image": "/images/onboarding/preferredStyle/Minimalistic.png"
+      },
+      {
+        "label": "modern",
+        "image": "/images/onboarding/preferredStyle/Modern.png"
+      },
+      {
+        "label": "Scandinavian",
+        "image": "/images/onboarding/preferredStyle/Scandinavian.png"
+      },
+      {
+        "label": "Traditional",
+        "image": "/images/onboarding/preferredStyle/Traditional.png"
+      }
+    ],
+    "required": true
+  },
+  {
+    "id": "houseToneDesign",
+    "title": "Set the tone for your home.",
+    "type": "imageSelect",
+    "name": "houseToneDesign",
+    "options": [
+      {
+        "label": "Soft, neutral tones Calm and peaceful.",
+        "image": "/images/onboarding/tone/Soft.png"
+      },
+      {
+        "label": "Bold and colourful Full of energy and life!",
+        "image": "/images/onboarding/tone/Bold.png"
+      },
+      {
+        "label": "Balanced Subtle colours with depth.",
+        "image": "/images/onboarding/tone/Balanced.png"
+      }
+    ],
+    "required": true
+  },
+  {
+    "id": "userDetails",
+    "title": "Almost there!",
+    "description": "Tell us how we can reach you and create your account.",
+    "fields": [
+      {
+        "name": "fullName",
+        "label": "Full name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "email",
+        "label": "Email address",
+        "type": "email",
+        "required": true
+      },
+      {
+        "name": "phone",
+        "label": "Phone Number",
+        "type": "text",
+        "required": false
+      }
+    ]
+  },
+
+  {
+    "id": "success",
+    "title": "You’ve Successfully Logged In",
+    "description": "We’ve curated some designs just for you!",
+    "type": "success"
+  }
+]

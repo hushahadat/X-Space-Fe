@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import OnboardingModal from "../onboarding/OnboardingModal";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <nav className="fixed md:top-4 left-0 right-0 z-50 backdrop-blur-md bg-gradientClass border-b border-white/20 md:mx-33 rounded-md ">
@@ -42,7 +44,10 @@ export default function Navbar() {
         {/* Desktop Menu */}
 
         <div className="hidden md:flex items-center gap-3">
-          <button className="rounded-full border border-white px-5 py-1 font-medium text-white hover:bg-white hover:text-primary transition cursor-pointer font-lato">
+          <button
+            onClick={() => setIsLoggedIn(!isLoggedIn)}
+            className="rounded-full border border-white px-5 py-1 font-medium text-white hover:bg-white hover:text-primary transition cursor-pointer font-lato"
+          >
             Sign Up
           </button>
           <button className="rounded-full bg-primary text-secondary px-5 py-1 font-medium hover:bg-gradientClass transition cursor-pointer font-lato">
@@ -78,6 +83,8 @@ export default function Navbar() {
           </div>
         )}
       </div>
+
+      <OnboardingModal isOpen={isLoggedIn} setOpen={setIsLoggedIn} />
     </nav>
   );
 }
