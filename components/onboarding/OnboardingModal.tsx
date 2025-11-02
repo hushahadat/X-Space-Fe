@@ -21,6 +21,13 @@ export default function OnboardingModal({
   const totalSteps = steps.length;
 
   const handleNext = async () => {
+    if (stepIndex === totalSteps - 1) {
+      setOpen(false);
+      setStepIndex(0);
+      console.log(methods.getValues());
+      methods.reset();
+      return;
+    }
     const isValid = await methods.trigger();
     if (!isValid) return;
     if (stepIndex < totalSteps - 1) setStepIndex(stepIndex + 1);
@@ -39,7 +46,7 @@ export default function OnboardingModal({
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="rounded-xl p-6 md:p-10 w-[90%] max-w-4xl  shadow-xl relative"
+              className="rounded-xl p-6 md:p-10 w-[90%] max-w-4xl  shadow-xl relative "
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -77,7 +84,7 @@ export default function OnboardingModal({
                       type="button"
                       onClick={handlePrev}
                       disabled={stepIndex === 0}
-                      className="text-gray-600 hover:text-black disabled:opacity-50 cursor-pointer"
+                      className="text-primary hover:text-black disabled:opacity-50 cursor-pointer"
                     >
                       Back
                     </button>
@@ -86,7 +93,11 @@ export default function OnboardingModal({
                       onClick={handleNext}
                       className="bg-[#D47A70] text-white px-6 py-2 rounded-full hover:bg-opacity-90 cursor-pointer"
                     >
-                      {stepIndex === totalSteps - 1 ? "Finish" : stepIndex === 0 ? 'Get Started' : "Next"}
+                      {stepIndex === totalSteps - 1
+                        ? "Finish"
+                        : stepIndex === 0
+                        ? "Get Started"
+                        : "Next"}
                     </button>
                   </div>
                 </form>

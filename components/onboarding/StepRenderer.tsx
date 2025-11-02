@@ -18,6 +18,8 @@ export default function StepRenderer({ step }: any) {
   const [selectedSub, setSelectedSub] = useState<string | null>(null);
   const [inputValue, setInputValue] = useState<string>("");
 
+  console.log("STEP ERRORS:", errors);
+
   /** -------------------------------
    *  STEP TYPE: INTRO / SUCCESS
    *  ------------------------------- */
@@ -46,7 +48,7 @@ export default function StepRenderer({ step }: any) {
   if (step.type === "imageSelect") {
     return (
       <div className="flex flex-col max-h-[70vh] md:max-h-[75vh]">
-        <h2 className="text-2xl md:text-3xl font-prata mb-4 flex-shrink-0">
+        <h2 className="text-2xl md:text-2xl font-prata mb-4 shrink-0 text-primary">
           {step.title}
         </h2>
 
@@ -105,9 +107,9 @@ export default function StepRenderer({ step }: any) {
   if (step.type === "nestedRadio") {
     return (
       <div className="mb-4 text-primary">
-        <h2 className="text-2xl md:text-3xl font-prata mb-4">{step.title}</h2>
+        <h2 className="text-2xl md:text-2xl font-prata mb-1">{step.title}</h2>
         {step.description && (
-          <p className="text-primary mb-6">{step.description}</p>
+          <p className="text-gray-500 mb-6">{step.description}</p>
         )}
 
         <div className="space-y-4">
@@ -115,10 +117,10 @@ export default function StepRenderer({ step }: any) {
             <div
               key={main.value}
               className={clsx(
-                "border rounded-lg p-4 transition-all",
+                "border rounded-lg p-4 transition-all bg-pinkLight ",
                 selectedMain === main.value
-                  ? "border-[#D47A70] bg-[#fff8f8]"
-                  : "border-gray-300 hover:border-gray-400"
+                  ? "border-gray-300 bg-pinkLight"
+                  : "border-gray-300 hover:border-pinkLight"
               )}
             >
               {/* Main Radio */}
@@ -140,13 +142,16 @@ export default function StepRenderer({ step }: any) {
 
               {/* Sub Options  */}
               {selectedMain === main.value && main.subOptions && (
-                <div className="pl-6 mt-3 space-y-2">
+                <div className="pl-6 mt-3 space-y-2 ">
                   {main.subOptions.map((sub: any) => (
-                    <div key={sub.value}>
+                    <div
+                      key={sub.value}
+                      className="border p-2 rounded-lg  border-gray-300"
+                    >
                       <label className="flex items-center space-x-2 cursor-pointer ">
                         <input
                           type="radio"
-                          {...register(`${step.name}_sub`, { required: true })}
+                          {...register(`${step.name}_sub`, { required: false })}
                           value={sub.value}
                           checked={selectedSub === sub.value}
                           onChange={() => {
@@ -167,7 +172,7 @@ export default function StepRenderer({ step }: any) {
                             type="text"
                             placeholder={sub.inputField.placeholder}
                             {...register(`${step.name}_size`, {
-                              required: true,
+                              required: false,
                             })}
                             className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-[#D47A70]"
                             value={inputValue}
@@ -194,7 +199,7 @@ export default function StepRenderer({ step }: any) {
                     <input
                       type="text"
                       placeholder={main.inputField.placeholder}
-                      {...register(`${step.name}_size`, { required: true })}
+                      {...register(`${step.name}_size`, { required: false })}
                       className="w-full border text-primary border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-[#D47A70]"
                       value={inputValue}
                       onChange={(e) => {
@@ -220,11 +225,11 @@ export default function StepRenderer({ step }: any) {
    *  ------------------------------- */
   return (
     <div>
-      <h2 className="text-2xl md:text-3xl font-prata mb-4 text-primary">
+      <h2 className="text-2xl md:text-2xl font-prata mb-1 text-primary">
         {step.title}
       </h2>
       {step.description && (
-        <p className="text-primary mb-6">{step.description}</p>
+        <p className="text-gray-500 mb-4">{step.description}</p>
       )}
       {step.fields?.map((field: any) => {
         switch (field.type) {
@@ -238,7 +243,7 @@ export default function StepRenderer({ step }: any) {
                 <input
                   {...register(field.name, { required: field.required })}
                   type={field.type}
-                  className="w-full border border-gray-400 rounded-md  p-2 focus:ring-2 focus:ring-[#D47A70]"
+                  className="w-full border  rounded-md  p-2 border-gray-300 bg-pinkLight text-primary text-sm "
                 />
                 {errors[field.name] && (
                   <p className="text-red-500 text-sm mt-1">Required</p>
@@ -249,17 +254,22 @@ export default function StepRenderer({ step }: any) {
             return (
               <div key={field.name} className="mb-4">
                 {field.options.map((option: string) => (
-                  <label
+                  <div
                     key={option}
-                    className="flex items-center space-x-2 mb-1"
+                    className="border p-2 m-2 rounded-lg  border-gray-300 bg-pinkLight cursor-pointer"
                   >
-                    <input
-                      {...register(field.name, { required: field.required })}
-                      type="radio"
-                      value={option}
-                    />
-                    <span className="text-primary">{option}</span>
-                  </label>
+                    <label
+                      key={option}
+                      className="flex items-center space-x-2 mb-1"
+                    >
+                      <input
+                        {...register(field.name, { required: field.required })}
+                        type="radio"
+                        value={option}
+                      />
+                      <span className="text-primary">{option}</span>
+                    </label>
+                  </div>
                 ))}
                 {errors[field.name] && (
                   <p className="text-red-500 text-sm mt-1">Select one</p>
@@ -268,14 +278,15 @@ export default function StepRenderer({ step }: any) {
             );
           case "textarea":
             return (
-              <div key={field.name} className="mb-4">
-                <label className="block text-sm mb-1 text-primary">
+              <div key={field.name} className="mb-4 mx-2">
+                {/* <label className="block text-sm mb-1 text-primary  ">
                   {field.label}
-                </label>
+                </label> */}
                 <textarea
                   {...register(field.name)}
                   rows={3}
-                  className="w-full border border-gray-400 rounded-md p-2"
+                  className="w-full border rounded-md p-2 border-gray-300 bg-pinkLight text-primary text-sm  "
+                  placeholder={field.label}
                 />
               </div>
             );

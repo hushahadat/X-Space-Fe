@@ -32,6 +32,14 @@
               "label": "Enter size (sq. ft.)",
               "placeholder": "e.g. 1500 sq. ft"
             }
+          },
+          {
+            "label": "3 BHK and more",
+            "value": "3bhk",
+            "inputField": {
+              "label": "Enter size (sq. ft.)",
+              "placeholder": "e.g. 1500 sq. ft"
+            }
           }
         ]
       },
@@ -52,7 +60,7 @@
       {
         "name": "budget",
         "type": "radio",
-        "options": ["<10 Lacs", "10–25 Lacs", "25–50 Lacs", ">50 Lacs"],
+        "options": ["Less than ₹10 Lacs", "₹10–25 Lacs", "₹25–50 Lacs", "Above ₹50 Lacs"],
         "required": true
       },
       {
