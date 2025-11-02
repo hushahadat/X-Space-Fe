@@ -74,7 +74,10 @@ export default function Navbar() {
             <Link href="#" className="text-white text-lg">
               Ask Experts
             </Link>
-            <button className="rounded-full border border-white px-5 py-2 text-white hover:bg-white hover:text-black transition">
+            <button
+              onClick={() => setIsLoggedIn(!isLoggedIn)}
+              className="rounded-full border border-white px-5 py-2 text-white hover:bg-white hover:text-black transition"
+            >
               Sign Up
             </button>
             <button className="rounded-full bg-white text-black px-5 py-2 font-medium">
