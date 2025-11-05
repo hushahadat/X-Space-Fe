@@ -32,12 +32,17 @@ export default function HeroSection() {
             trusted professionals. All in one seamless experience.
           </p>
 
-          <button className="bg-primary text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 cursor-pointer">
+          <button
+            onClick={() => {
+              push(ROUTES.EXPLORE_IDEA);
+            }}
+            className="bg-primary text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full hover:bg-opacity-90 transition-all duration-300 cursor-pointer"
+          >
             Explore
           </button>
 
           {/* Hover Cards */}
-          <div className="flex flex-col sm:flex-row flex-wrap mt-10 gap-4 ">
+          <div className="flex flex-col sm:flex-row flex-wrap mt-10 gap-4 place-items-center">
             <HoverCard
               title={<div className="text-lg font-prata">Explore Ideas</div>}
               description={
