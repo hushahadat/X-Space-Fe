@@ -1,7 +1,10 @@
 "use client";
+import { ROUTES } from "@/lib/constants";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function DesignYourSpace() {
+  const { push } = useRouter();
   return (
     <section className="relative w-full min-h-screen flex flex-col justify-center items-center text-secondary px-4 py-16 md:py-24">
       <div className="absolute inset-0 -z-10">
@@ -36,7 +39,12 @@ export default function DesignYourSpace() {
               Tired of scrolling through unrealistic inspiration? Get curated
               ideas that match your actual space and budget.
             </p>
-            <button className="bg-primary px-6 py-2 rounded-full text-sm hover:bg-primary/80 transition">
+            <button
+              className="bg-primary px-6 py-2 rounded-full text-sm hover:bg-primary/80 transition cursor-pointer"
+              onClick={() => {
+                push(ROUTES.EXPLORE_IDEA);
+              }}
+            >
               Explore
             </button>
           </div>
@@ -76,7 +84,12 @@ export default function DesignYourSpace() {
                 Tired of scrolling through unrealistic inspiration? Get curated
                 ideas that match your actual space and budget.
               </p>
-              <button className="bg-[#0A1F44] px-6 py-2 rounded-full text-sm hover:bg-[#0A1F44]/80 transition">
+              <button
+                className="bg-[#0A1F44] px-6 py-2 rounded-full text-sm hover:bg-[#0A1F44]/80 transition cursor-pointer"
+                onClick={() => {
+                  push(ROUTES.FIND_PROFESSIONALs);
+                }}
+              >
                 Find
               </button>
             </div>
@@ -98,7 +111,12 @@ export default function DesignYourSpace() {
                 Tired of scrolling through unrealistic inspiration? Get curated
                 ideas that match your actual space and budget.
               </p>
-              <button className="bg-[#0A1F44] px-6 py-2 rounded-full text-sm hover:bg-[#0A1F44]/80 transition">
+              <button
+                className="bg-[#0A1F44] px-6 py-2 rounded-full text-sm hover:bg-[#0A1F44]/80 transition cursor-pointer"
+                onClick={() => {
+                  push(ROUTES.ASK_EXPERT);
+                }}
+              >
                 Ask
               </button>
             </div>

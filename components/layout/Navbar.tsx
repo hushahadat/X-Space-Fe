@@ -4,18 +4,20 @@ import Link from "next/link";
 import { useState } from "react";
 import OnboardingModal from "../onboarding/OnboardingModal";
 import { usePathname, useRouter } from "next/navigation";
+import { ROUTES } from "@/lib/constants";
 
-const ROUTES = ["/", "/ask-experts"];
+const ROUTE: string[] = [ROUTES.EXPLORE_IDEA, ROUTES.HOME];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const pathname = usePathname();
   const { push } = useRouter();
-  const BG_PRIMARY = ROUTES.includes(pathname)
+  const BG_PRIMARY = ROUTE.includes(pathname)
     ? "bg-gradientClass"
     : "bg-primary";
-  const TEXT_SECONDARY = pathname === "/" ? "text-primary" : "text-gray-400";
+  const TEXT_SECONDARY =
+    pathname === ROUTES.HOME ? "text-primary" : "text-gray-400";
 
   return (
     <nav
@@ -37,19 +39,19 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-16 ">
             <Link
-              href="/explore-ideas"
+              href={ROUTES.EXPLORE_IDEA}
               className={`text-secondary hover:${TEXT_SECONDARY} font-lato`}
             >
               Explore Ideas
             </Link>
             <Link
-              href="/find-professionals"
+              href={ROUTES.FIND_PROFESSIONALs}
               className={`text-secondary hover:${TEXT_SECONDARY} font-lato`}
             >
               Find Professionals
             </Link>
             <Link
-              href="/ask-experts"
+              href={ROUTES.ASK_EXPERT}
               className={`text-secondary hover:${TEXT_SECONDARY} font-lato`}
             >
               Ask Experts
@@ -81,13 +83,16 @@ export default function Navbar() {
 
         {isOpen && (
           <div className="absolute top-full left-0 w-full bg-[#00000059] backdrop-blur-3xl flex flex-col items-center gap-4 py-6 md:hidden">
-            <Link href="/explore-ideas" className="text-white text-lg">
+            <Link href={ROUTES.EXPLORE_IDEA} className="text-white text-lg">
               Explore Ideas
             </Link>
-            <Link href="/find-professionals" className="text-white text-lg">
+            <Link
+              href={ROUTES.FIND_PROFESSIONALs}
+              className="text-white text-lg"
+            >
               Find Professionals
             </Link>
-            <Link href="/ask-experts" className="text-white text-lg">
+            <Link href={ROUTES.ASK_EXPERT} className="text-white text-lg">
               Ask Experts
             </Link>
             <button

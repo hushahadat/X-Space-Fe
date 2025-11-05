@@ -1,5 +1,6 @@
 "use client";
 import { Mail, Phone, MapPin, Instagram, Linkedin, X } from "lucide-react";
+import { ROUTES } from "@/lib/constants";
 import Link from "next/link";
 
 export default function Footer() {
@@ -37,13 +38,22 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-end gap-6 font-lato">
             {/* Links above icons */}
             <div className="flex flex-col md:flex-row text-white gap-4 md:gap-10 text-center md:text-right">
-              <Link href="#" className="hover:text-gray-400 transition-colors">
+              <Link
+                href={ROUTES.EXPLORE_IDEA}
+                className="hover:text-gray-400 transition-colors"
+              >
                 Explore Ideas
               </Link>
-              <Link href="#" className="hover:text-gray-400 transition-colors">
+              <Link
+                href={ROUTES.FIND_PROFESSIONALs}
+                className="hover:text-gray-400 transition-colors"
+              >
                 Find Professionals
               </Link>
-              <Link href="#" className="hover:text-gray-400 transition-colors">
+              <Link
+                href={ROUTES.ASK_EXPERT}
+                className="hover:text-gray-400 transition-colors"
+              >
                 Ask Experts
               </Link>
             </div>

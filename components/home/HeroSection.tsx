@@ -1,7 +1,11 @@
+"use client";
 import Image from "next/image";
 import HoverCard from "../ui/HoverCard";
+import { useRouter } from "next/navigation";
+import { ROUTES } from "@/lib/constants";
 
 export default function HeroSection() {
+  const { push } = useRouter();
   return (
     <section className="relative flex justify-center items-center min-h-[90vh] md:min-h-[108vh] overflow-hidden">
       {/* Background Image */}
@@ -44,6 +48,9 @@ export default function HeroSection() {
               imageUrl="/images/wall-design.jpg"
               width={15}
               height={13}
+              onClick={() => {
+                push(ROUTES.EXPLORE_IDEA);
+              }}
             />
 
             <HoverCard
@@ -58,6 +65,9 @@ export default function HeroSection() {
               imageUrl="/images/dine-area.jpg"
               width={15}
               height={13}
+              onClick={() => {
+                push(ROUTES.FIND_PROFESSIONALs);
+              }}
             />
 
             <HoverCard
@@ -70,6 +80,9 @@ export default function HeroSection() {
               imageUrl="/images/color-palette.jpg"
               width={15}
               height={13}
+              onClick={() => {
+                push(ROUTES.ASK_EXPERT);
+              }}
             />
           </div>
         </div>
@@ -92,6 +105,9 @@ export default function HeroSection() {
             width={24}
             height={33}
             showDescription
+            onClick={() => {
+              push(ROUTES.ASK_EXPERT);
+            }}
           />
         </div>
       </div>
