@@ -81,13 +81,13 @@ export default function Navbar() {
 
         {isOpen && (
           <div className="absolute top-full left-0 w-full bg-[#00000059] backdrop-blur-3xl flex flex-col items-center gap-4 py-6 md:hidden">
-            <Link href="#" className="text-white text-lg">
+            <Link href="/explore-ideas" className="text-white text-lg">
               Explore Ideas
             </Link>
-            <Link href="#" className="text-white text-lg">
+            <Link href="/find-professionals" className="text-white text-lg">
               Find Professionals
             </Link>
-            <Link href="#" className="text-white text-lg">
+            <Link href="/ask-experts" className="text-white text-lg">
               Ask Experts
             </Link>
             <button
