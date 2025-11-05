@@ -39,13 +39,13 @@ export default function Navbar() {
               Explore Ideas
             </Link>
             <Link
-              href="#"
+              href="/find-professionals"
               className={`text-secondary hover:${TEXT_SECONDARY} font-lato`}
             >
               Find Professionals
             </Link>
             <Link
-              href="#"
+              href="/ask-experts"
               className={`text-secondary hover:${TEXT_SECONDARY} font-lato`}
             >
               Ask Experts
