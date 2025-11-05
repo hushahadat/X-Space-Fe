@@ -5,12 +5,16 @@ import { useState } from "react";
 import OnboardingModal from "../onboarding/OnboardingModal";
 import { usePathname, useRouter } from "next/navigation";
 
+const ROUTES = ["/", "/ask-experts"];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const pathname = usePathname();
   const { push } = useRouter();
-  const BG_PRIMARY = pathname === "/" ? "bg-gradientClass" : "bg-primary";
+  const BG_PRIMARY = ROUTES.includes(pathname)
+    ? "bg-gradientClass"
+    : "bg-primary";
   const TEXT_SECONDARY = pathname === "/" ? "text-primary" : "text-gray-400";
 
   return (
