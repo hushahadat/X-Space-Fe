@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import OnboardingModal from "../onboarding/OnboardingModal";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const pathname = usePathname();
+  const { push } = useRouter();
   const BG_PRIMARY = pathname === "/" ? "bg-gradientClass" : "bg-primary";
   const TEXT_SECONDARY = pathname === "/" ? "text-primary" : "text-gray-400";
 
@@ -20,7 +21,12 @@ export default function Navbar() {
         <div className="flex items-center gap-18">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-bold text-secondary">✺</span>
-            <span className="text-lg md:text-xl font-semibold text-secondary font-prata">
+            <span
+              onClick={() => {
+                push("/");
+              }}
+              className="text-lg md:text-xl font-semibold text-secondary font-prata cursor-pointer "
+            >
               XSpace
             </span>
           </div>
