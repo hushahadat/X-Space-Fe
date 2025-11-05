@@ -3,13 +3,19 @@
 import Link from "next/link";
 import { useState } from "react";
 import OnboardingModal from "../onboarding/OnboardingModal";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const pathname = usePathname();
+  const BG_PRIMARY = pathname === "/" ? "bg-gradientClass" : "bg-primary";
+  const TEXT_SECONDARY = pathname === "/" ? "text-primary" : "text-gray-400";
 
   return (
-    <nav className="fixed md:top-4 left-0 right-0 z-50 backdrop-blur-md bg-gradientClass border-b border-white/20 md:mx-33 rounded-md ">
+    <nav
+      className={`fixed md:top-4 left-0 right-0 z-50 backdrop-blur-md border-b border-white/20 md:mx-33 rounded-md ${BG_PRIMARY} `}
+    >
       <div className="w-full  flex items-center justify-between px-6 py-3">
         <div className="flex items-center gap-18">
           <div className="flex items-center gap-2">
@@ -21,20 +27,20 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-16 ">
             <Link
-              href="#"
-              className="text-secondary hover:text-primary font-lato"
+              href="/explore-ideas"
+              className={`text-secondary hover:${TEXT_SECONDARY} font-lato`}
             >
               Explore Ideas
             </Link>
             <Link
               href="#"
-              className="text-secondary hover:text-primary font-lato"
+              className={`text-secondary hover:${TEXT_SECONDARY} font-lato`}
             >
               Find Professionals
             </Link>
             <Link
               href="#"
-              className="text-secondary hover:text-primary font-lato"
+              className={`text-secondary hover:${TEXT_SECONDARY} font-lato`}
             >
               Ask Experts
             </Link>
